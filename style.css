@@ -1,0 +1,126 @@
+
+:root{
+    /*fonts*/
+    --ff-os:'Open Sans', sans-serif;
+    --ff-po:'Poppins', sans-serif;
+    /*Colors*/
+    --Violet: hsl(257, 40%, 49%);
+    --SoftMagenta: hsl(300, 69%, 71%);
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    background: url(images/bg-mobile.svg) no-repeat;
+    background-size: 100vw;
+    background-color:var(--Violet);
+    margin:0;
+    min-height: 100vh;
+    
+}
+.container{
+    width:min(90vw,1400px);
+    margin:auto;
+}
+.grid{
+    display: grid;
+    grid-template: 
+    "logo"
+    "hero"
+    "text"
+    "social";
+}
+header{
+    grid-area:logo;
+}
+header img{
+    width:10rem;
+}
+.hero{
+    grid-area:hero;
+}
+.hero img{
+    display: block;
+    width: 100%;
+}
+.context{
+    text-align: center;
+    color: #fff;
+    grid-area:text;
+}
+.context h2{
+    font-family: var(--ff-os);
+    font-size: clamp(2rem,7vw,3rem);
+}
+.context p{
+    font-family: var(--ff-po);
+    margin-bottom: 2rem;
+}
+.context button{
+    padding: 1.2em;
+    border:none;
+    background-color: #fff;
+    border-radius: 2em;
+    width:min(50vw,220px);
+    color: var(--Violet);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    box-shadow: 4px 10px 20px -5px hsla(0, 0%, 0%, 0.3);
+}
+.context button:hover{
+    background-color: var(--SoftMagenta);
+    color:#fff
+}
+footer{
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    grid-area:social;
+}
+footer span{
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    padding-top: 15px;
+    border-radius: 50%;
+    margin-inline: 10px;
+    cursor: pointer;
+}
+footer img{
+    width: 20px;
+    height:20px;
+}
+@media (min-width:770px){
+    body{
+        background: url(images/bg-desktop.svg) no-repeat;
+        background-size: 100vw 100%;
+        background-color:var(--Violet);
+        margin:0;
+        min-height: 100vh;
+        
+    }
+    header .logo{
+        margin-bottom:3rem;
+    }
+    .grid{
+        display: grid;
+        grid-template: 
+        "logo ."
+        "hero text"
+        "hero social";
+        grid-gap:2rem;
+        grid-template-columns:6fr 5fr;
+    }
+    .context{
+        text-align: left;
+    }
+    footer{
+        text-align: right;
+        height:100%;
+        display: flex;
+    }
+    footer div{
+        margin-top: auto;
+        margin-left: auto;
+    }
+}
